@@ -52,17 +52,17 @@ public class RatingController {
         return mapToDto(rating);
     }
 
-    @GetMapping
-    public List<RatingDto> getByDoctor(Doctor doctor) {
-        List<Rating> ratings = ratingService.getByDoctor(doctor);
-        return  ratings.stream().map(this::mapToDto).collect(Collectors.toList());
-    }
-
-    @GetMapping
-    public List<RatingDto> getByPatient(Patient patient) {
-        List<Rating> ratings = ratingService.getByPatient(patient);
-        return  ratings.stream().map(this::mapToDto).collect(Collectors.toList());
-    }
+//    @GetMapping
+//    public List<RatingDto> getByDoctor(Doctor doctor) {
+//        List<Rating> ratings = ratingService.getByDoctor(doctor);
+//        return  ratings.stream().map(this::mapToDto).collect(Collectors.toList());
+//    }
+//
+//    @GetMapping
+//    public List<RatingDto> getByPatient(Patient patient) {
+//        List<Rating> ratings = ratingService.getByPatient(patient);
+//        return  ratings.stream().map(this::mapToDto).collect(Collectors.toList());
+//    }
 
     private RatingDto mapToDto(Rating rating) {
         return mapper.map(rating, RatingDto.class);

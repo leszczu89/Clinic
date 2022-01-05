@@ -1,16 +1,13 @@
 package com.clinic.domain.dto;
 
-import com.clinic.domain.Doctor;
-import com.clinic.domain.Patient;
-
 public class RatingDto {
 
     private int rate;
     private String description;
-    private Patient patient;
-    private Doctor doctor;
+    private PatientDto patient;
+    private DoctorDto doctor;
 
-    public RatingDto(int rate, String description, Patient patient, Doctor doctor) {
+    public RatingDto(int rate, String description, PatientDto patient, DoctorDto doctor) {
         this.rate = rate;
         this.description = description;
         this.patient = patient;
@@ -36,19 +33,19 @@ public class RatingDto {
         this.description = description;
     }
 
-    public Patient getPatient() {
+    public PatientDto getPatient() {
         return patient;
     }
 
-    public void setPatient(Patient patient) {
+    public void setPatient(PatientDto patient) {
         this.patient = patient;
     }
 
-    public Doctor getDoctor() {
+    public DoctorDto getDoctor() {
         return doctor;
     }
 
-    public void setDoctor(Doctor doctor) {
+    public void setDoctor(DoctorDto doctor) {
         this.doctor = doctor;
     }
 }

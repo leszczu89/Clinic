@@ -2,6 +2,7 @@ package com.clinic.domain.dto;
 
 public class DoctorDto {
 
+    private Long id;
     private String email;
     private String name;
     private String surname;
@@ -15,6 +16,14 @@ public class DoctorDto {
     }
 
     public DoctorDto() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getEmail() {

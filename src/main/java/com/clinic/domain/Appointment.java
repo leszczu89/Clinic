@@ -2,7 +2,8 @@ package com.clinic.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Objects;
 
 @Entity(name = "APPOINTMENTS")
@@ -14,10 +15,13 @@ public class Appointment {
     public Long id;
 
     @Column(name = "DATE")
-    public Date date;
+    public LocalDate date;
+
+    @Column(name = "TIME")
+    public LocalTime time;
 
     @Column(name = "PAYMENT")
-    public boolean paid;
+    public boolean paid = false;
 
     @NotNull
     @JoinColumn(name = "DOCTOR")
@@ -30,6 +34,13 @@ public class Appointment {
 
 
     public Appointment() {
+    }
+
+    public Appointment(LocalDate date, LocalTime time, Doctor doctor) {
+        this.date = date;
+        this.time = time;
+        this.doctor = doctor;
+        this.paid = false;
     }
 
     @Override
@@ -64,11 +75,11 @@ public class Appointment {
         this.id = id;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

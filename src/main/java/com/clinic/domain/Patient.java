@@ -1,9 +1,6 @@
 package com.clinic.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
@@ -30,7 +27,24 @@ public class Patient {
     @Column(name = "SURNAME")
     private String surname;
 
+    @OneToOne
+    public Users user;
+
     public Patient() {
+    }
+
+    public Patient(String email, String name, String surname) {
+        this.email = email;
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public Long getId() {

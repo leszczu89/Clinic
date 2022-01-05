@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-@Transactional
+//@Transactional
 public interface DoctorRepository extends CrudRepository<Doctor, Long> {
 
     @Override

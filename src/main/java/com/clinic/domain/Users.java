@@ -34,6 +34,12 @@ public class Users {
     public Users() {
     }
 
+    public Users(Enum<Role> role, String login, String password) {
+        this.role = role;
+        this.login = login;
+        this.password = password;
+    }
+
     public Long getId() {
         return id;
     }

@@ -32,7 +32,25 @@ public class Doctor {
     @JoinColumn(name = "SPECIALIZATION")
     public Specialization specialization;
 
+    @OneToOne
+    public Users user;
+
     public Doctor() {
+    }
+
+    public Doctor(String email, String name, String surname, Specialization specialization) {
+        this.email = email;
+        this.name = name;
+        this.surname = surname;
+        this.specialization = specialization;
+    }
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public Long getId() {

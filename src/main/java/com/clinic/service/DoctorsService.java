@@ -1,6 +1,7 @@
 package com.clinic.service;
 
 import com.clinic.domain.Doctor;
+import com.clinic.domain.Users;
 import com.clinic.exceptions.UserNotFoundException;
 import com.clinic.repository.DoctorRepository;
 import org.springframework.stereotype.Service;
@@ -12,12 +13,18 @@ import java.util.Optional;
 public class DoctorsService {
 
     private final DoctorRepository doctorRepository;
+    private final UserService userService;
 
-    public DoctorsService(DoctorRepository doctorRepository) {
+    public DoctorsService(DoctorRepository doctorRepository, UserService userService) {
         this.doctorRepository = doctorRepository;
+        this.userService = userService;
     }
 
     public Doctor save(Doctor doctor) {
+        UsersPreparationStrategy usersPreparationStrategy = new DoctorUserPreparator(doctor);
+        Users users = usersPreparationStrategy.createUser();
+        Users savedUser = userService.save(users);
+        doctor.setUser(savedUser);
         return doctorRepository.save(doctor);
     }
 

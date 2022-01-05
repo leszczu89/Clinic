@@ -2,6 +2,7 @@ package com.clinic.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
@@ -10,6 +11,7 @@ import java.util.Objects;
 public class Specialization {
     @Id
     @NotNull
+    @GeneratedValue
     @Column(name = "ID")
     public Long id;
 
@@ -20,8 +22,7 @@ public class Specialization {
     @Column(name = "ACTIVE")
     public Boolean active = true;
 
-    public Specialization(Long id, String name) {
-        this.id = id;
+    public Specialization(String name) {
         this.name = name;
         this.active = true;
     }
